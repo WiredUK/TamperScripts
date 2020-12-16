@@ -1,11 +1,10 @@
 // ==UserScript==
 // @name           Table Formatter
-// @author         David Glass (DavidG)
+// @author         DavidG
 // @grant          GM_addStyle
 // @license        MIT
-// @namespace      TBC
-// @version        1.7.0.0
-// @description    Allow copying of formatted table to a more useful format
+// @version        1.0.0.0
+// @description    Allow copying of formatted tables on Stack Overflow to a more useful format
 // @include        /^https?:\/\/([\w-]*\.)*((stackoverflow|stackexchange|serverfault|superuser|askubuntu|stackapps)\.com|mathoverflow.net)\/(c\/[^\/]*\/)?(questions|posts|review|tools)\/(?!tagged\/|new\/).*/
 // @exclude       *://chat.stackoverflow.com/*
 // @exclude       *://chat.stackexchange.com/*
