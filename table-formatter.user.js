@@ -42,6 +42,6 @@
 
     });
 
-    GM_addStyle('.s-table-container>.copy-button{display:none;opacity:0;position:absolute;float:right;background-color:white;padding:3px;border-radius:5px;height:26px;cursor:pointer;}.s-table-container:hover>.copy-button{display:block;opacity:1;}');
+    GM_addStyle('.s-table-container>.copy-button{display:none;opacity:0;position:absolute;float:right;background-color:white;padding:3px;border-radius:5px;height:26px;cursor:pointer;}.s-table-container:hover>.copy-button{display:block;opacity:1;}.s-table-container>.copy-button:active{background-color:#ccc;}');
 })();
 
