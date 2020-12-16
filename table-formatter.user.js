@@ -3,7 +3,7 @@
 // @author         DavidG
 // @grant          GM_addStyle
 // @license        MIT
-// @version        1.0.0.0
+// @version        1.0.0.1
 // @description    Allow copying of formatted tables on Stack Overflow to a more useful format
 // @include        /^https?:\/\/([\w-]*\.)*((stackoverflow|stackexchange|serverfault|superuser|askubuntu|stackapps)\.com|mathoverflow.net)\/(c\/[^\/]*\/)?(questions|posts|review|tools)\/(?!tagged\/|new\/).*/
 // @exclude       *://chat.stackoverflow.com/*
