@@ -3,7 +3,7 @@
 // @author         DavidG
 // @grant          GM_addStyle
 // @license        MIT
-// @version        1.0.0.1
+// @version        1.0.0.3
 // @description    Allow copying of formatted tables on Stack Overflow to a more useful format
 // @include        /^https?:\/\/([\w-]*\.)*((stackoverflow|stackexchange|serverfault|superuser|askubuntu|stackapps)\.com|mathoverflow.net)\/(c\/[^\/]*\/)?(questions|posts|review|tools)\/(?!tagged\/|new\/).*/
 // @exclude       *://chat.stackoverflow.com/*
@@ -42,6 +42,6 @@
 
     });
 
-    GM_addStyle('.s-table-container>.copy-button{display:none;opacity:0;position:absolute;float:right;background-color:white;padding:3px;border-radius:5px;height:26px;cursor:pointer;}.s-table-container:hover>.copy-button{display:block;opacity:1;}.s-table-container>.copy-button:active{background-color:#ccc;}');
+    GM_addStyle('.s-table-container>.copy-button{opacity:0;transition: opacity 0.2s;position:absolute;float:right;background-color:white;padding:3px;border-radius:5px;margin:5px;height:26px;cursor:pointer;}.s-table-container:hover>.copy-button{opacity:1;}.s-table-container>.copy-button:active{background-color:#ccc;}');
 })();
 
