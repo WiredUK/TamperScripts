@@ -3,8 +3,8 @@
 // @author         DavidG
 // @grant          GM_addStyle
 // @license        MIT
-// @version        1.0.0.3
-// @description    Allow copying of formatted tables on Stack Overflow to a more useful format
+// @version        1.1.0.0
+// @description    Allow copy & paste of tables on Stack Overflow (ALT+V to paste CSV into a table)
 // @include        /^https?:\/\/([\w-]*\.)*((stackoverflow|stackexchange|serverfault|superuser|askubuntu|stackapps)\.com|mathoverflow.net)\/(c\/[^\/]*\/)?(questions|posts|review|tools)\/(?!tagged\/|new\/).*/
 // @exclude       *://chat.stackoverflow.com/*
 // @exclude       *://chat.stackexchange.com/*
@@ -44,4 +44,53 @@
 
     GM_addStyle('.s-table-container>.copy-button{opacity:0;transition: opacity 0.2s;position:absolute;float:right;background-color:white;padding:3px;border-radius:5px;margin:5px;height:26px;cursor:pointer;}.s-table-container:hover>.copy-button{opacity:1;}.s-table-container>.copy-button:active{background-color:#ccc;}');
 })();
+
+function KeyPress(e, f) {
+    // We're only looking for ALT+V...
+    if (e.keyCode != 86 || !e.altKey) {
+        return;
+    }
+
+    // ... and only in a textarea
+    if(!e.srcElement instanceof HTMLTextAreaElement) {
+        return;
+    }
+
+    // Time to paste a table!
+    navigator.clipboard.readText().then(clipText => {
+        e.srcElement.value =
+            e.srcElement.value.substring(0, e.srcElement.selectionStart) +
+            formatAsTable(clipText) +
+            e.srcElement.value.substring(e.srcElement.selectionEnd, e.srcElement.value.length);
+    });
+
+}
+
+function formatAsTable(text) {
+    var table = "";
+    var isFirstLine = true;
+
+    var lines = text.split("\n");
+
+    lines.forEach(function (line) {
+        var cells = line.split(",");
+        cells.forEach(function(cell) {
+            table += "|" + cell;
+        });
+
+        if(isFirstLine) {
+            cells.forEach(function(cell) {
+                table += "|-----";
+            });
+            table += "\n";
+        }
+        isFirstLine = false;
+    });
+
+    return table;
+}
+
+document.onkeydown = KeyPress;
+
+
 
